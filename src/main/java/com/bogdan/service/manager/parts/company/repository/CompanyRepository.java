@@ -12,7 +12,8 @@ public interface CompanyRepository extends CrudRepository<Company, Long> {
     // no custom queries
 
     @Query("SELECT c " +
-            "FROM Company c     " +
-            "WHERE c.type <> com.bogdan.service.manager.common.enums.CompanyTypeEnum.SUPPLIER")
+            "FROM Company c " +
+            "WHERE c.type <> com.bogdan.service.manager.common.enums.CompanyTypeEnum.OWNER " +
+            "ORDER BY c.type DESC, c.id DESC ")
     List<Company> getAllExceptOwner();
 }

@@ -1,0 +1,12 @@
+<zk>
+    <borderlayout hflex="true" vflex="true" apply="org.zkoss.bind.BindComposer"
+             viewModel="@id('vm') @init('com.bogdan.service.manager.parts.company.web.CompanyManagerVM')">
+
+        <west width="30%" splittable="true" closable="true">
+            <include mode="instant" height="max" hflex="true" src="~./view/company/companyList.zul" />
+        </west>
+        <center>
+            <include mode="instant" hflex="true" src="~./view/company/companyInfoGrid.zul" />
+        </center>
+    </borderlayout>
+</zk>

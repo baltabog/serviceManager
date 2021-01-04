@@ -1,25 +1,24 @@
-<zul>
-    <listbox hflex="1" vflex="1" model="@load(vm.companies)"
+<zk>
+    <listbox hflex="max" vflex="1" model="@load(vm.companies)"
              multiple="false" selectedItem="@bind(vm.company)"
              onSelect="@command('onSelectCompany')" checkmark="true">
 
         <listhead>
-            <listheader width="max" label="Nume" />
-            <listheader width="80px" style="border-left: none"/>
+            <listheader hflex="max" label="Nume" />
+            <listheader hflex="min" style="border-right: none">
+                <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-address-card" onClick="@command('addCompany')" />
+            </listheader>
         </listhead>
         <template name="model" var="companyModel">
             <listitem>
                 <listcell>
-                    <hlayout>
-                        <!--<image hflex="2" src="@load(vm.logo, company=companyModel)" />-->
-                        <label value="@load(companyModel.name)"/>
-                    </hlayout>
+                    <label value="@load(companyModel.name)"/>
                 </listcell>
                 <listcell>
-                    <toolbarbutton iconSclass="z-icon-edit" onClick="@command('onEdit', company=companyModel)"/>
-                    <toolbarbutton iconSclass="z-icon-trash" onClick="@command('onDelete', company=companyModel)"/>
+                    <toolbarbutton iconSclass="z-icon-edit" tooltip="Editeaza detalii" onClick="@command('onEdit', company=companyModel)"/>
+                    <toolbarbutton iconSclass="z-icon-trash" tooltip="Sterge" onClick="@command('onDelete', company=companyModel)"/>
                 </listcell>
             </listitem>
         </template>
     </listbox>
-</zul>
+</zk>

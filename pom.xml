@@ -59,6 +59,7 @@
 		<dependency>
 			<groupId>org.zkoss.zkspringboot</groupId>
 			<artifactId>zkspringboot-starter</artifactId>
+			<type>pom</type>
 			<version>${zkspringboot.version}</version>
 		</dependency>
 		<dependency>
