@@ -1,0 +1,64 @@
+<zul>
+    <grid>
+        <columns>
+            <column hflex="1" />
+            <column hflex="2" />
+        </columns>
+        <rows>
+            <row>
+                <label value="Nume companie:" />
+                <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.company.username)" />
+            </row>
+            <row>
+                <label value="Tip:" />
+                <combobox id="combobox" width="100px" model="@load(vm.companyTypeModel)">
+                    <template name="model" var="companyType">
+                        <comboitem label="@load(companyType.name)" value="companyType" />
+                    </template>
+                </combobox>
+            </row>
+            <row>
+                <label value="CIF:" />
+                <textbox hflex="true" disabled="@load(vm.editDisabled)"  value="@bind(vm.company.email)" />
+            </row>
+            <row>
+                <label value="CAEN:" />
+                <textbox hflex="true" disabled="@load(vm.editDisabled)"  value="@bind(vm.company.password)" />
+            </row>
+            <row>
+                <label value="CUI:" />
+                <textbox hflex="true" disabled="@load(vm.editDisabled)"  value="@bind(vm.company.password)" />
+            </row>
+            <row>
+                <label value="Adresa:" />
+                <textbox hflex="true" disabled="@load(vm.editDisabled)"  value="@bind(vm.company.password)" />
+            </row>
+            <row>
+                <label value="Telefon:" />
+                <textbox hflex="true" disabled="@load(vm.editDisabled)"  value="@bind(vm.company.password)" />
+            </row>
+            <row>
+                <label value="E-mail:" />
+                <textbox hflex="true" disabled="@load(vm.editDisabled)"  value="@bind(vm.company.password)" />
+            </row>
+            <row>
+                <label value="IBAN:" />
+                <textbox hflex="true" disabled="@load(vm.editDisabled)"  value="@bind(vm.company.password)" />
+            </row>
+            <row>
+                <label value="Banca:" />
+                <textbox hflex="true" disabled="@load(vm.editDisabled)"  value="@bind(vm.company.password)" />
+            </row>
+            <!--<row>
+                <label value="Logo:" />
+                <hlayout>
+                    <image hflex="2" src="@bind(vm.logo, company=companyModel)" />
+                    <button hflex="1" disabled="@load(vm.editDisabled)"
+                            iconSclass="z-icon-upload"
+                            onClick="@command('uploadLogo')"
+                            label="@load(vm.logoButtonLabel)"/>
+                </hlayout>
+            </row>-->
+        </rows>
+    </grid>
+</zul>

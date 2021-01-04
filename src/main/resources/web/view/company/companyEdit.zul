@@ -1,0 +1,12 @@
+<zul>
+    <vlayout hflex="true" vflex="true" apply="org.zkoss.bind.BindComposer"
+             viewModel="@id('vm') @init('com.bogdan.service.manager.parts.company.web.CompanyEditVM')">
+
+        <hbox hflex="true" align="end">
+            <button iconSclass="z-icon-save" onClick="@command('saveCompany')" />
+            <button iconSclass="z-icon-cancel" onClick="@command('disableChanges')" />
+        </hbox>
+
+        <include hflex="true" src="~./view/company/companyInfoGrid.zul" />
+    </vlayout>
+</zul>

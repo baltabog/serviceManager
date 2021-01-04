@@ -1,0 +1,11 @@
+<zul>
+    <hlayout hflex="true" vflex="true" apply="org.zkoss.bind.BindComposer"
+             viewModel="@id('vm') @init('com.bogdan.service.manager.parts.company.web.CompanyVM')">
+
+        <vlayout>
+            <include mode="instant" hflex="true" src="~./view/company/companyList.zul" />
+            <button label="Adauaga" hflex="true" iconSclass="z-icon-address-card" onClick="@command('addCompany')" />
+        </vlayout>
+        <include mode="instant" hflex="true" src="~./view/company/companyInfoGrid.zul" />
+    </hlayout>
+</zul>

@@ -9,11 +9,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-public abstract class CrudService<K extends Model, L extends CrudRepository<K, Integer>> {
+public abstract class CrudService<K extends Model, L extends CrudRepository<K, Long>> {
 
     protected abstract L getRepository();
 
-    public K getById(Integer id) {
+    public K getById(long id) {
         return getRepository().findById(id).orElseThrow();
     }
 
@@ -22,26 +22,26 @@ public abstract class CrudService<K extends Model, L extends CrudRepository<K, I
                 .collect(Collectors.toList());
     }
 
-    public K create(K K) {
-        if (K.getId() != null) {
+    public K create(K entity) {
+        if (entity.getId() != 0) {
             throw new DuplicateKeyException("Unexpected field {id} found!");
         }
 
-        return getRepository().save(K);
+        return getRepository().save(entity);
     }
 
-    public K update(K K)  {
-        if (K.getId() == null) {
+    public K update(K entity)  {
+        if (entity.getId() == 0) {
             throw new NoSuchElementException();
         }
 
-        return getRepository().save(K);
+        return getRepository().save(entity);
     }
 
-    public boolean delete(Integer id) {
-        Optional<K> K = getRepository().findById(id);
-        if (K.isPresent()) {
-            getRepository().delete(K.get());
+    public boolean delete(long id) {
+        Optional<K> entity = getRepository().findById(id);
+        if (entity.isPresent()) {
+            getRepository().delete(entity.get());
             return true;
         }
 

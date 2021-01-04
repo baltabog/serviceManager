@@ -6,6 +6,8 @@ import com.bogdan.service.manager.common.database.CrudService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CompanyService extends CrudService<Company, CompanyRepository> {
@@ -14,5 +16,9 @@ public class CompanyService extends CrudService<Company, CompanyRepository> {
     @Override
     protected CompanyRepository getRepository() {
         return companyRepository;
+    }
+
+    public List<Company> getAllExceptOwner() {
+        return companyRepository.getAllExceptOwner();
     }
 }

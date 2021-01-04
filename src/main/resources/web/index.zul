@@ -1,0 +1,15 @@
+<zk>
+    <style src="~./config/zk.css" />
+    <borderlayout id="view" vflex="true">
+        <north hflex="true">
+            <include mode="instant" hflex="true" src="~./view/header/header.zul" />
+        </north>
+        <center hflex="1">
+            <label value="${~./view/company/company.zul}" />
+            <!--<include mode="instant" hflex="true" src="~./view/company/company.zul" />-->
+        </center>
+        <south>
+            <include mode="instant" hflex="true" src="~./view/footer/footer.zul" />
+        </south>
+    </borderlayout>
+</zk>
