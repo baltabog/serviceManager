@@ -1,20 +1,22 @@
 <zk>
     <style src="~./config/zk.css" />
     <borderlayout id="view" vflex="true">
-        <north hflex="true">
+        <!--<north hflex="true">
             <include mode="instant" hflex="true" src="~./view/header/header.zul" />
-        </north>
+        </north>-->
         <center hflex="true">
             <tabbox vflex="true" hflex="true">
                 <tabs>
                     <tab label="Organizator companii" />
-                    <tab label="Tab 2" />
+                    <tab label="Produse" />
                 </tabs>
                 <tabpanels>
                     <tabpanel>
                         <include mode="instant" hflex="true" src="~./view/company/companyManager.zul" />
                     </tabpanel>
-                    <tabpanel>This is panel 2</tabpanel>
+                    <tabpanel>
+                        <include mode="instant" hflex="true" src="~./view/product/prodManager.zul" />
+                    </tabpanel>
                 </tabpanels>
             </tabbox>
         </center>

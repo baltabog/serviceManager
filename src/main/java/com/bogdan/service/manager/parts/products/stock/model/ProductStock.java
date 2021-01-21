@@ -29,6 +29,8 @@ public class ProductStock implements Model {
     private ProductContainer containerType;
     @Column(name = "qty")
     private Integer containersNo;
+    @Column(name = "already_selled")
+    private Integer alreadySelled;
 
     @OneToOne
     @JoinColumn(name = "provider_id", referencedColumnName = "id")
@@ -46,7 +48,7 @@ public class ProductStock implements Model {
     private Integer discount;
     private Double actualSellingPrice;
 
-    private boolean readyForSell;
+    private Boolean readyForSell;
 
     // add more general info
 }

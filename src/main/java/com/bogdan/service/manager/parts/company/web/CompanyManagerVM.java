@@ -19,7 +19,7 @@ import java.util.List;
 public class CompanyManagerVM {
 
     @WireVariable
-    CompanyService companyService;
+    private CompanyService companyService;
 
     @Getter
     @Setter

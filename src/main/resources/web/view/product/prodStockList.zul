@@ -1,0 +1,24 @@
+<zk>
+    <listbox hflex="max" vflex="1" model="@load(vm.prodStocks)"
+             multiple="false" selectedItem="@bind(vm.productStock)"
+             onSelect="@command('onSelectStock')" checkmark="true">
+
+        <listhead>
+            <listheader hflex="max" label="Stoc" />
+            <listheader hflex="min" style="border-right: none">
+                <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-address-card" onClick="@command('addStock')" />
+            </listheader>
+        </listhead>
+        <template name="model" var="stockModel">
+            <listitem>
+                <listcell>
+                    <label value="@load(vm.getStockLabel(stockModel))" />
+                </listcell>
+                <listcell>
+                    <toolbarbutton iconSclass="z-icon-edit" tooltip="Editeaza detalii" onClick="@command('onEditStock', stock=stockModel)"/>
+                    <toolbarbutton iconSclass="z-icon-trash" tooltip="Sterge" onClick="@command('onDeleteStock', stock=stockModel)"/>
+                </listcell>
+            </listitem>
+        </template>
+    </listbox>
+</zk>

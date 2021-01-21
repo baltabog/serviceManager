@@ -1,0 +1,24 @@
+<zk>
+    <listbox hflex="max" vflex="1" model="@load(vm.prodContainers)"
+             multiple="false" selectedItem="@bind(vm.productContainer)"
+             onSelect="@command('onSelectContainer')" checkmark="true">
+
+        <listhead>
+            <listheader hflex="max" label="Brand - Container" />
+            <listheader hflex="min" style="border-right: none">
+                <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-address-card" onClick="@command('addContainer')" />
+            </listheader>
+        </listhead>
+        <template name="model" var="containerModel">
+            <listitem>
+                <listcell>
+                    <label value="@load(vm.getContainerLabel(containerModel))" />
+                </listcell>
+                <listcell>
+                    <toolbarbutton iconSclass="z-icon-edit" tooltip="Editeaza detalii" onClick="@command('onEditContainer', container=containerModel)"/>
+                    <toolbarbutton iconSclass="z-icon-trash" tooltip="Sterge" onClick="@command('onDeleteContainer', container=containerModel)"/>
+                </listcell>
+            </listitem>
+        </template>
+    </listbox>
+</zk>

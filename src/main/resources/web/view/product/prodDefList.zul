@@ -1,0 +1,24 @@
+<zk>
+    <listbox hflex="max" vflex="1" model="@load(vm.prodDefinitions)"
+             multiple="false" selectedItem="@bind(vm.productDefinition)"
+             onSelect="@command('onSelectDefinition')" checkmark="true">
+
+        <listhead>
+            <listheader hflex="max" label="Definition" />
+            <listheader hflex="min" style="border-right: none">
+                <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-address-card" onClick="@command('addDefinition')" />
+            </listheader>
+        </listhead>
+        <template name="model" var="defModel">
+            <listitem>
+                <listcell>
+                    <label value="@load(defModel.name)" />
+                </listcell>
+                <listcell>
+                    <toolbarbutton iconSclass="z-icon-edit" tooltip="Editeaza detalii" onClick="@command('onEditDefinition', definition=defModel)"/>
+                    <toolbarbutton iconSclass="z-icon-trash" tooltip="Sterge" onClick="@command('onDeleteDefinition', company=defModel)"/>
+                </listcell>
+            </listitem>
+        </template>
+    </listbox>
+</zk>

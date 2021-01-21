@@ -1,0 +1,15 @@
+<zk>
+    <borderlayout hflex="true" vflex="true" apply="org.zkoss.bind.BindComposer"
+                  viewModel="@id('vm') @init('com.bogdan.service.manager.parts.products.web.ProductManagerVM')">
+
+        <west width="30%" splittable="true" closable="false">
+            <include mode="instant" hflex="true" src="~./view/product/prodDefList.zul" />
+        </west>
+        <center>
+            <include mode="instant" hflex="true" src="~./view/product/prodContainerList.zul" />
+        </center>
+        <east width="30%" splittable="true" closable="false">
+            <include mode="instant" hflex="true" src="~./view/product/prodStockList.zul" />
+        </east>
+    </borderlayout>
+</zk>

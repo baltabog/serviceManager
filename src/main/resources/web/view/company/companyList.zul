@@ -4,7 +4,7 @@
              onSelect="@command('onSelectCompany')" checkmark="true">
 
         <listhead>
-            <listheader hflex="max" label="Nume" />
+            <listheader hflex="max" label="Nume companie" />
             <listheader hflex="min" style="border-right: none">
                 <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-address-card" onClick="@command('addCompany')" />
             </listheader>
