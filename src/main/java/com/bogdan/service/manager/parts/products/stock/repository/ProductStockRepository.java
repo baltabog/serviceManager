@@ -14,6 +14,7 @@ public interface ProductStockRepository extends CrudRepository<ProductStock, Lon
 
     @Query( "SELECT ps " +
             "FROM ProductStock ps " +
-            "WHERE ps.containerType.id = :containerId ")
+            "WHERE ps.containerType.id = :containerId " +
+            " AND ps.containersNo-COALESCE(ps.alreadySelled, 0) > 0 ")
     List<ProductStock> findByContainer(long containerId);
 }

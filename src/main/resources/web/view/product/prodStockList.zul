@@ -1,11 +1,11 @@
 <zk>
-    <listbox hflex="max" vflex="1" model="@load(vm.prodStocks)"
+    <listbox hflex="max" vflex="max" model="@load(vm.prodStocks)"
              multiple="false" selectedItem="@bind(vm.productStock)"
-             onSelect="@command('onSelectStock')" checkmark="true">
+             onSelect="@command('onSelectStock')" >
 
         <listhead>
             <listheader hflex="max" label="Stoc" />
-            <listheader hflex="min" style="border-right: none">
+            <listheader hflex="min" style="border-right: none" visible="${arg.withAction}">
                 <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-address-card" onClick="@command('addStock')" />
             </listheader>
         </listhead>

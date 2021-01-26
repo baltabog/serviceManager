@@ -4,7 +4,7 @@
              onSelect="@command('onSelectDefinition')" checkmark="true">
 
         <listhead>
-            <listheader hflex="max" label="Definition" />
+            <listheader hflex="max" label="Tipuri de produse: " />
             <listheader hflex="min" style="border-right: none">
                 <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-address-card" onClick="@command('addDefinition')" />
             </listheader>

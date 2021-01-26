@@ -6,7 +6,7 @@
         </columns>
         <rows>
             <row align="right">
-                <label value="Detalii companie" />
+                <label value="" />
                 <button label="Salveaza" iconSclass="z-icon-save" onClick="@command('saveCompany')" />
             </row>
             <row>
