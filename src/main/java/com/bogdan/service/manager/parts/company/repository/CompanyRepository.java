@@ -5,12 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 public interface CompanyRepository extends CrudRepository<Company, Long> {
-    // no custom queries
-
     @Query("SELECT c " +
             "FROM Company c " +
             "WHERE c.type <> com.bogdan.service.manager.common.enums.CompanyTypeEnum.OWNER " +
