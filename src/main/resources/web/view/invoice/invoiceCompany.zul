@@ -1,0 +1,18 @@
+<zk>
+    <grid>
+        <columns>
+            <column hflex="1" />
+            <column hflex="2" />
+        </columns>
+        <rows>
+            <row align="right">
+                <textbox value="${company.name}" disabled="true" />
+                <button />
+            </row>
+            <row>
+                <label value="Banca:" />
+                <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.company.bank)" />
+            </row>
+        </rows>
+    </grid>
+</zk>

@@ -1,7 +1,7 @@
-package com.bogdan.service.manager.parts.incoming.nir.model;
+package com.bogdan.service.manager.parts.nir.model;
 
 import com.bogdan.service.manager.common.database.Model;
-import com.bogdan.service.manager.parts.incoming.invoice.model.IncomingInvoice;
+import com.bogdan.service.manager.parts.invoice.model.Invoice;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -22,6 +22,6 @@ public class ReceptionNote implements Model {
     private String serialNumber;
     @OneToOne
     @JoinColumn(name = "invoice_id", referencedColumnName = "id")
-    private IncomingInvoice invoice;
+    private Invoice invoice;
     private LocalDateTime receivedDate;
 }

@@ -9,6 +9,7 @@
                 <tabs>
                     <tab label="Organizator companii" />
                     <tab label="Produse" />
+                    <tab label="Facturi intrare" />
                 </tabs>
                 <tabpanels>
                     <tabpanel>
@@ -16,6 +17,9 @@
                     </tabpanel>
                     <tabpanel>
                         <include mode="instant" hflex="true" src="~./view/product/prodManager.zul" />
+                    </tabpanel>
+                    <tabpanel>
+                        <include mode="instant" hflex="true" src="~./view/invoice/incomingInvoiceManager.zul" />
                     </tabpanel>
                 </tabpanels>
             </tabbox>

@@ -2,7 +2,7 @@ package com.bogdan.service.manager.parts.products.stock.model;
 
 import com.bogdan.service.manager.common.database.Model;
 import com.bogdan.service.manager.parts.company.model.Company;
-import com.bogdan.service.manager.parts.incoming.invoice.model.IncomingInvoice;
+import com.bogdan.service.manager.parts.invoice.model.Invoice;
 import com.bogdan.service.manager.parts.products.container.model.ProductContainer;
 import lombok.Data;
 
@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -32,9 +33,9 @@ public class ProductStock implements Model {
     @JoinColumn(name = "provider_id", referencedColumnName = "id")
     private Company provider;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "in_invoice_id", referencedColumnName = "id")
-    private IncomingInvoice incomingInvoice;
+    private Invoice incomingInvoice;
 
     private Boolean internalUsage;
 
