@@ -1,0 +1,76 @@
+<zk>
+    <div align="right" sclass="z-listheader z-listheader-content">
+        <button label="Fisier  " iconSclass="z-icon-print" tooltip="filePopup" />
+        <popup id="filePopup" width="150px" >
+            <vlayout>
+                <toolbarbutton label="Creeaza" hflex="1" onClick="alert(Creeaza factura in format PDF)" disabled="@load(vm.editDisabled)" />
+                <toolbarbutton label="Descarca" hflex="1" onClick="alert(Descarca factura in format PDF)" disabled="@load(vm.invoiceUnselected)" />
+            </vlayout>
+        </popup>
+    </div>
+    <div sclass="grid1to3twice" >
+        <div>
+            <label value="Serie/Nr" />
+        </div>
+        <div>
+            <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@load(vm.selectedInvoice.serialNumber)" />
+        </div>
+        <div>
+            <label value="Data" />
+        </div>
+        <div>
+            <datebox hflex="true" disabled="@load(vm.editDisabled)" value="@load(vm.selectedInvoiceDate)" />
+        </div>
+        <div>
+            <label value="Furnizor" />
+        </div>
+        <div>
+            <textbox hflex="true" disabled="true" value="@load(vm.selectedInvoice.senderCompany.name)" />
+        </div>
+        <div>
+            <label value="Cumparator" />
+        </div>
+        <div>
+            <textbox hflex="true" disabled="true" value="@load(vm.selectedInvoice.receiverCompany.name)" />
+        </div>
+    </div>
+    <listbox hflex="max" vflex="1" model="@load(vm.invoiceStocks)"
+             multiple="false" checkmark="false" >
+        <listhead>
+            <listheader hflex="5">
+                <label value="Container/Produs" />
+            </listheader>
+            <listheader hflex="2">
+                <label value="Numar" />
+            </listheader>
+            <listheader hflex="3">
+                <label value="Pret/Unitate" />
+            </listheader>
+        </listhead>
+        <template name="model" var="stockModel">
+            <listitem>
+                <listcell>
+                    <label value="@load(vm.getContainerInfo(stockModel.containerType))" />
+                </listcell>
+                <listcell hflex="1">
+                    <label value="@load(stockModel.containersNo)" />
+                </listcell>
+                <listcell hflex="1">
+                    <label value="@load(stockModel.price)" />
+                </listcell>
+            </listitem>
+        </template>
+    </listbox>
+    <div sclass="grid1to3twice">
+        <div />
+        <div />
+        <div>
+            <label value="Total" />
+        </div>
+        <div>
+            <hlayout>
+                <textbox hflex="true" value="@load(vm.selectedInvoice.totalPayment)" disabled="true" />
+            </hlayout>
+        </div>
+    </div>
+</zk>

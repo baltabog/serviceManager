@@ -1,12 +1,12 @@
 <zk>
-    <listbox hflex="max" vflex="1" model="@load(vm.invoices)"
+    <listbox hflex="1" vflex="1" model="@load(vm.invoices)"
              multiple="false" selectedItem="@bind(vm.selectedInvoice)"
-             onSelect="@command('onSelectInvoice')" checkmark="true">
+             onSelect="@command('onSelectInvoice')" checkmark="false">
 
         <listhead>
-            <listheader hflex="max" label="Descriere" />
-            <listheader hflex="min" style="border-right: none">
-                <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-address-card" onClick="@command('addInvoice')" />
+            <listheader hflex="3" label="Descriere" sort="auto(lower(serialNumber))" />
+            <listheader hflex="min" style="border-right: none" visible="${enableAddInvoice}">
+                <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-plus" onClick="@command('addInvoice')" />
             </listheader>
         </listhead>
         <template name="model" var="invoiceModel">
@@ -21,10 +21,9 @@
                         <hlayout>
                             <label value="@load(invoiceModel.serialNumber)" />
                             <label value=" din " />
-                            <label value="@load(invoiceModel.receivedDate)" />
+                            <label value="@load(invoiceModel.date)" />
                         </hlayout>
                     </vlayout>
-
                 </listcell>
                 <listcell>
                     <toolbarbutton iconSclass="z-icon-edit" tooltip="Editeaza detalii" onClick="@command('onEditInvoice', invoice=invoiceModel)"/>

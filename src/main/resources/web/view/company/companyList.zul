@@ -1,18 +1,22 @@
 <zk>
-    <listbox hflex="max" vflex="1" model="@load(vm.companies)"
+    <listbox hflex="1" vflex="1" model="@load(vm.companies)"
              multiple="false" selectedItem="@bind(vm.company)"
-             onSelect="@command('onSelectCompany')" checkmark="true">
+             onSelect="@command('onSelectCompany')" checkmark="false">
 
         <listhead>
             <listheader hflex="max" label="Nume companie" />
+            <listheader hflex="max" label="Tip" />
             <listheader hflex="min" style="border-right: none">
-                <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-address-card" onClick="@command('addCompany')" />
+                <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-plus" onClick="@command('addCompany')" />
             </listheader>
         </listhead>
         <template name="model" var="companyModel">
             <listitem>
                 <listcell>
                     <label value="@load(companyModel.name)"/>
+                </listcell>
+                <listcell>
+                    <label value="@load(companyModel.type.roName)"/>
                 </listcell>
                 <listcell>
                     <toolbarbutton iconSclass="z-icon-edit" tooltip="Editeaza detalii" onClick="@command('onEdit', company=companyModel)"/>

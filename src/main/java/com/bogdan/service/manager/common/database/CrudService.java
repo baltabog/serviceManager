@@ -2,6 +2,7 @@ package com.bogdan.service.manager.common.database;
 
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -22,6 +23,7 @@ public abstract class CrudService<K extends Model, L extends CrudRepository<K, L
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public K create(K entity) {
         if (entity.getId() != 0) {
             throw new DuplicateKeyException("Unexpected field {id} found!");
@@ -30,6 +32,7 @@ public abstract class CrudService<K extends Model, L extends CrudRepository<K, L
         return getRepository().save(entity);
     }
 
+    @Transactional
     public K update(K entity)  {
         if (entity.getId() == 0) {
             throw new NoSuchElementException();
@@ -38,6 +41,7 @@ public abstract class CrudService<K extends Model, L extends CrudRepository<K, L
         return getRepository().save(entity);
     }
 
+    @Transactional
     public boolean delete(long id) {
         Optional<K> entity = getRepository().findById(id);
         if (entity.isPresent()) {

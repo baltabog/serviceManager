@@ -1,18 +1,25 @@
 <zk>
-    <listbox hflex="max" vflex="1" model="@load(vm.prodContainers)"
+    <listbox hflex="1" vflex="1" model="@load(vm.prodContainers)"
              multiple="false" selectedItem="@bind(vm.productContainer)"
-             onSelect="@command('onSelectContainer')" checkmark="true">
-
+             onSelect="@command('onSelectContainer')" checkmark="false">
         <listhead>
-            <listheader hflex="max" label="Brand - Container" />
-            <listheader hflex="min" style="border-right: none">
-                <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-address-card" onClick="@command('addContainer')" />
+            <listheader hflex="1" label="Tip produs" align="center" sort="containerModel.definition.name" />
+            <listheader hflex="1" label="Brand" align="center" sort="containerModel.brand" />
+            <listheader hflex="1" label="Container" align="center" sort="containerModel.quantity"/>
+            <listheader hflex="min" style="border-right: none" align="center">
+                <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-plus" onClick="@command('addContainer')" />
             </listheader>
         </listhead>
         <template name="model" var="containerModel">
             <listitem>
                 <listcell>
-                    <label value="@load(vm.getContainerLabel(containerModel))" />
+                    <label value="@load(containerModel.definition.name)" />
+                </listcell>
+                <listcell>
+                    <label value="@load(containerModel.brand)" />
+                </listcell>
+                <listcell>
+                    <label value="@load(vm.getContainerContainer(containerModel))" />
                 </listcell>
                 <listcell>
                     <toolbarbutton iconSclass="z-icon-edit" tooltip="Editeaza detalii" onClick="@command('onEditContainer', container=containerModel)"/>

@@ -1,31 +1,16 @@
+<?page title="Service Manager"?>
 <zk>
-    <style src="~./config/zk.css" />
-    <borderlayout id="view" vflex="true">
-        <!--<north hflex="true">
-            <include mode="instant" hflex="true" src="~./view/header/header.zul" />
-        </north>-->
-        <center hflex="true">
-            <tabbox vflex="true" hflex="true">
-                <tabs>
-                    <tab label="Organizator companii" />
-                    <tab label="Produse" />
-                    <tab label="Facturi intrare" />
-                </tabs>
-                <tabpanels>
-                    <tabpanel>
-                        <include mode="instant" hflex="true" src="~./view/company/companyManager.zul" />
-                    </tabpanel>
-                    <tabpanel>
-                        <include mode="instant" hflex="true" src="~./view/product/prodManager.zul" />
-                    </tabpanel>
-                    <tabpanel>
-                        <include mode="instant" hflex="true" src="~./view/invoice/incomingInvoiceManager.zul" />
-                    </tabpanel>
-                </tabpanels>
-            </tabbox>
+    <style src="~./config/style.css" />
+    <borderlayout width="100%" height="100%" apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('com.bogdan.service.manager.IndexVM')">
+       <north>
+           <include mode="instant" hflex="true" height="max" src="~./view/common/header.zul" />
+       </north>
+        <center>
+            <include mode="instant" hflex="true" height="max" src="@load(vm.content)" />
         </center>
-        <south hflex="true">
-            <include mode="instant" hflex="true" src="~./view/footer/footer.zul" />
+        <south>
+            <include mode="instant" hflex="true" height="max" src="~./view/common/footer.zul" />
         </south>
     </borderlayout>
 </zk>

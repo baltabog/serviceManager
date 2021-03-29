@@ -1,69 +1,85 @@
 <zk>
-    <grid>
-        <columns>
-            <column hflex="1" />
-            <column hflex="2" />
-        </columns>
-        <rows>
-            <row align="right">
-                <label value="" />
-                <button label="Salveaza" iconSclass="z-icon-save" onClick="@command('saveCompany')" />
-            </row>
-            <row>
-                <label value="Nume companie:" />
-                <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.company.name)" />
-            </row>
-            <row>
-                <label value="Tip:" />
-                <combobox id="combobox" hflex="true" model="@load(vm.companyTypeModel)"
-                          selectedItem="@bind(vm.company.type)" disabled="@load(vm.editDisabled)">
-                    <template name="model" var="companyType">
-                        <comboitem label="@load(companyType)" value="companyType" />
-                    </template>
-                </combobox>
-            </row>
-            <row>
-                <label value="CIF:" />
-                <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.company.cif)" />
-            </row>
-            <row>
-                <label value="CAEN:" />
-                <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.company.caen)" />
-            </row>
-            <row>
-                <label value="CUI:" />
-                <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.company.cui)" />
-            </row>
-            <row>
-                <label value="Adresa:" />
-                <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.company.address)" />
-            </row>
-            <row>
-                <label value="Telefon:" />
-                <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.company.phone)" />
-            </row>
-            <row>
-                <label value="E-mail:" />
-                <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.company.email)" />
-            </row>
-            <row>
-                <label value="IBAN:" />
-                <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.company.iban)" />
-            </row>
-            <row>
-                <label value="Banca:" />
-                <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.company.bank)" />
-            </row>
-            <!--<row>
-                <label value="Logo:" />
-                <hlayout>
-                    <image hflex="2" src="@bind(vm.logo, company=companyModel)" />
-                    <button hflex="1" disabled="@load(vm.editDisabled)"
-                            iconSclass="z-icon-upload"
-                            onClick="@command('uploadLogo')"
-                            label="@load(vm.logoButtonLabel)"/>
-                </hlayout>
-            </row>-->
-        </rows>
-    </grid>
+    <div align="right" sclass="z-listheader z-listheader-content">
+        <button label="Salveaza" iconSclass="z-icon-save" onClick="@command('saveCompany')" disabled="@load(vm.editDisabled)" />
+    </div>
+
+    <div sclass="grid1to3" >
+        <div>
+            <label value="Nume companie:" />
+        </div>
+        <div>
+            <textbox disabled="@load(vm.editDisabled)" value="@bind(vm.company.name)" />
+        </div>
+        <div>
+            <label value="Tip:" />
+        </div>
+        <div>
+            <combobox model="@load(vm.companyTypeModel)"
+                       selectedItem="@bind(vm.company.type)" disabled="@load(vm.editDisabled)">
+                <template name="model" var="companyType">
+                    <comboitem label="@load(companyType.roName)" value="companyType" />
+                </template>
+            </combobox>
+        </div>
+        <div>
+            <label value="CIF:" />
+        </div>
+        <div>
+            <textbox disabled="@load(vm.editDisabled)" value="@bind(vm.company.cif)" />
+        </div>
+        <div>
+            <label value="CAEN:" />
+        </div>
+        <div>
+            <textbox disabled="@load(vm.editDisabled)" value="@bind(vm.company.caen)" />
+        </div>
+        <div>
+            <label value="CUI:" />
+        </div>
+        <div>
+            <textbox disabled="@load(vm.editDisabled)" value="@bind(vm.company.cui)" />
+        </div>
+        <div>
+            <label value="Adresa:" />
+        </div>
+        <div>
+            <textbox disabled="@load(vm.editDisabled)" value="@bind(vm.company.address)" />
+        </div>
+        <div>
+            <label value="Telefon:" />
+        </div>
+        <div>
+            <textbox disabled="@load(vm.editDisabled)" value="@bind(vm.company.phone)" />
+        </div>
+        <div>
+            <label value="E-mail:" />
+        </div>
+        <div>
+            <textbox disabled="@load(vm.editDisabled)" value="@bind(vm.company.email)" />
+        </div>
+        <div>
+            <label value="IBAN:" />
+        </div>
+        <div>
+            <textbox disabled="@load(vm.editDisabled)" value="@bind(vm.company.iban)" />
+        </div>
+        <div>
+            <label value="Banca:" />
+        </div>
+        <div>
+            <textbox disabled="@load(vm.editDisabled)" value="@bind(vm.company.bank)" />
+        </div>
+        <!--<div>
+            <label value="Logo:" />
+        </div>
+        <div>
+            <hlayout>
+                <image hflex="2" src="@bind(vm.logo, company=companyModel)" />
+                <button disabled="@load(vm.editDisabled)"
+                        iconSclass="z-icon-upload"
+                        onClick="@command('uploadLogo')"
+                        label="@load(vm.logoButtonLabel)"/>
+            </hlayout>
+        </div>-->
+    </div>
 </zk>

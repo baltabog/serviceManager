@@ -1,0 +1,14 @@
+<zk>
+    <borderlayout hflex="true" vflex="true" apply="org.zkoss.bind.BindComposer"
+                  viewModel="@id('vm') @init('com.bogdan.service.manager.parts.invoice.web.IncomeInvoiceManager')">
+
+        <center>
+            <include mode="instant" hflex="true" src="~./view/invoice/invoiceList.zul" enableAddInvoice="true" />
+        </center>
+
+        <east width="50%" splittable="true" closable="false">
+            <include mode="instant" height="max" hflex="true" src="~./view/invoice/income/incomeInvoiceDetails.zul" sclass="bordered" />
+        </east>
+
+    </borderlayout>
+</zk>

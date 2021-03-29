@@ -1,0 +1,6 @@
+<zk>
+    <div height="max" hflex="1" align="center" apply="org.zkoss.bind.BindComposer"
+          viewModel="@id('vm') @init('com.bogdan.service.manager.parts.company.web.OwnerCompanyVM')">
+        <include mode="instant" width="50%" vflex="1" src="~./view/company/companyInfoGrid.zul" />
+    </div>
+</zk>

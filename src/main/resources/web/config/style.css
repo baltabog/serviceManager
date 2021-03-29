@@ -1,0 +1,84 @@
+<zk>
+
+    body {
+        background-color: #000000;
+        padding: 0;
+    }
+
+    .z-north, .z-south, .z-west, .z-center, .z-east, .z-north-body, .z-south-body, .z-west-body, .z-center-body, .z-east-body, .z-tabpanel, .z-tabpanels, .z-tabbox {
+        border: 0;
+        padding: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .z-grid, .z-row-inner, .z-grid, .z-cell {
+         background-color : transparent;
+    }
+
+    .z-listcell-content, .z-row-content, .z-cell, .z-label {
+        padding: 6px 12px;
+    }
+
+    .z-label {
+        margin-top: 6px;
+    }
+
+    .z-button {
+        background-color: #727272;
+    }
+
+    .z-button:disable {
+        background-color: #888888;
+    }
+
+    .z-button:hover {
+        background-color: #888888aa;
+    }
+
+    .z-small-button {
+        padding: 4px 0px;
+    }
+
+    .z-include {
+        height: calc(100%)
+    }
+
+    .grid1to3 {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: auto auto;
+        overflow: auto;
+    }
+
+    .grid1to3twice {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr 3fr;
+        grid-template-rows: auto auto auto auto;
+        overflow: auto;
+    }
+
+    .grid1to3 > div, .grid1to3twice > div {
+        display: grid;
+        padding: 0.5em;
+        border-top: 1px solid #f2f2f2;
+        overflow: hidden;
+    }
+
+    .footer {
+        padding: 10;
+    }
+
+    .bordered {
+        border: 1px solid #d9d9d9;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .title {
+        padding: 16px;
+        font-size: large;
+        font-family: fantasy;
+    }
+
+</zk>

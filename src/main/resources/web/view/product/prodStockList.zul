@@ -1,22 +1,25 @@
 <zk>
-    <listbox hflex="max" vflex="max" model="@load(vm.prodStocks)"
-             multiple="false" selectedItem="@bind(vm.productStock)"
-             onSelect="@command('onSelectStock')" >
+    <listbox hflex="max" height="inherit" model="@load(vm.prodStocks)"
+             multiple="false" checkmark="false" >
 
-        <listhead>
+        <listhead sclass="">
             <listheader hflex="max" label="Stoc" />
-            <listheader hflex="min" style="border-right: none" visible="${arg.withAction}">
-                <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-address-card" onClick="@command('addStock')" />
-            </listheader>
+            <listheader hflex="max" label="Pret" />
+            <listheader hflex="min" label="Actiuni"/>
         </listhead>
         <template name="model" var="stockModel">
             <listitem>
                 <listcell>
-                    <label value="@load(vm.getStockLabel(stockModel))" />
+                    <label value="@load(vm.getStockAvailableQty(stockModel))" />
                 </listcell>
                 <listcell>
-                    <toolbarbutton iconSclass="z-icon-edit" tooltip="Editeaza detalii" onClick="@command('onEditStock', stock=stockModel)"/>
-                    <toolbarbutton iconSclass="z-icon-trash" tooltip="Sterge" onClick="@command('onDeleteStock', stock=stockModel)"/>
+                    <hlayout>
+                        <label value="@load(vm.sellingPrice)" />
+                        <label value="RON" />
+                    </hlayout>
+                </listcell>
+                <listcell>
+                    <toolbarbutton iconSclass="z-icon-shopping-cart" tooltip="Pune in cos" onClick="@command('onAddToSoppingCart', stock=stockModel)"/>
                 </listcell>
             </listitem>
         </template>

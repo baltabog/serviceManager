@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -20,5 +21,13 @@ public class CompanyService extends CrudService<Company, CompanyRepository> {
 
     public List<Company> getAllExceptOwner() {
         return companyRepository.getAllExceptOwner();
+    }
+
+    public Optional<Company> getOwner() {
+        return companyRepository.getOwner();
+    }
+
+    public List<Company> getSuppliers() {
+        return companyRepository.getSuppliers();
     }
 }

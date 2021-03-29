@@ -20,7 +20,7 @@ public abstract class CrudAPI <K extends Model, L extends CrudRepository<K, Long
         return getService().getById(id);
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public List<K> getAll() {
         return getService().getAll();
     }

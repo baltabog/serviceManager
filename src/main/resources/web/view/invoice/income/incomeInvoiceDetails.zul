@@ -1,0 +1,105 @@
+<zk>
+    <div align="right" sclass="z-listheader z-listheader-content">
+        <button label="Salveaza" iconSclass="z-icon-save" onClick="@command('saveInvoice')" disabled="@load(vm.editDisabled)" />
+        <button label="Vezi NIR" iconSclass="z-icon-book" disabled="@load(vm.invoiceUnselected)" >
+            <attribute name="onClick"><![CDATA[
+                Messagebox.show("Show NIR dialog - NEIMPLEMENTAT", "Error", Messagebox.OK, Messagebox.ERROR);
+            ]]></attribute>
+        </button>
+        <button label="Fisier" iconSclass="z-icon-print" popup="filePopup" tooltip="filePopup" visible="false" />
+        <popup id="filePopup" width="150px">
+            <vlayout>
+                <toolbarbutton label="Incarca" hflex="1" disabled="@load(vm.editDisabled)"  >
+                    <attribute name="onClick"><![CDATA[
+                        Messagebox.show("Incarca factura in format PDF - NEIMPLEMENTAT", "Error", Messagebox.OK, Messagebox.ERROR);
+                    ]]></attribute>
+                </toolbarbutton>
+                <toolbarbutton label="Descarca" hflex="1" disabled="@load(vm.invoiceUnselected)"  >
+                    <attribute name="onClick"><![CDATA[
+                        Messagebox.show("Descarca factura in format PDF - NEIMPLEMENTAT", "Error", Messagebox.OK, Messagebox.ERROR);
+                    ]]></attribute>
+                </toolbarbutton>
+            </vlayout>
+        </popup>
+    </div>
+    <div sclass="grid1to3twice" >
+        <div>
+            <label value="Serie/Nr"  />
+        </div>
+        <div>
+            <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.selectedInvoice.serialNumber)" />
+        </div>
+        <div>
+            <label value="Data"  />
+        </div>
+        <div>
+            <datebox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.selectedInvoiceDate)" />
+        </div>
+        <div>
+            <label value="Furnizor"  />
+        </div>
+        <div>
+            <combobox model="@load(vm.supplierCompanies)" hflex="1"
+                      selectedItem="@bind(vm.selectedInvoice.senderCompany)" disabled="@load(vm.editDisabled)">
+                <template name="model" var="company">
+                    <comboitem label="@load(company.name)" value="company" />
+                </template>
+            </combobox>
+        </div>
+        <div>
+            <label value="Cumparator"  />
+        </div>
+        <div>
+            <textbox hflex="true" disabled="true" value="@load(vm.selectedInvoice.receiverCompany.name)" />
+        </div>
+    </div>
+    <listbox hflex="max" vflex="1" model="@load(vm.invoiceStocks)"
+             multiple="false" checkmark="false" >
+        <listhead>
+            <listheader hflex="5">
+                <label value="Container/Produs" />
+            </listheader>
+            <listheader hflex="2">
+                <label value="Numar" />
+            </listheader>
+            <listheader hflex="2">
+                <label value="Pret/Unitate" />
+            </listheader>
+            <listheader hflex="1">
+                <button sclass="z-small-button" iconSclass="z-icon-plus" onClick="@command('addStockToInvoice')" disabled="@load(vm.editDisabled)"  />
+            </listheader>
+        </listhead>
+        <template name="model" var="stockModel">
+            <listitem>
+                <listcell>
+                    <combobox model="@load(vm.containers)" hflex="1"
+                              selectedItem="@bind(stockModel.containerType)" disabled="@load(vm.editDisabled)">
+                        <template name="model" var="container">
+                            <comboitem label="@load(vm.getContainerInfo(container))" value="container" />
+                        </template>
+                    </combobox>
+                </listcell>
+                <listcell hflex="1">
+                    <textbox hflex="1" value="@bind(stockModel.containersNo)" disabled="@load(vm.editDisabled)" />
+                </listcell>
+                <listcell hflex="1">
+                    <doublebox hflex="1" value="@bind(stockModel.price)" disabled="@load(vm.editDisabled)" />
+                </listcell>
+                <listcell />
+            </listitem>
+        </template>
+    </listbox>
+    <div sclass="grid1to3twice">
+        <div />
+        <div />
+        <div>
+            <label value="Total"  />
+        </div>
+        <div>
+            <hlayout>
+                <textbox hflex="4" value="@bind(vm.selectedInvoice.totalPayment)" disabled="true" />
+                <button sclass="z-small-button" hflex="1" iconSclass="z-icon-calculator" onClick="@command('calculateTotal')" disabled="@load(vm.editDisabled)" />
+            </hlayout>
+        </div>
+    </div>
+</zk>

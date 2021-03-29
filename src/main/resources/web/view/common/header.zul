@@ -1,0 +1,16 @@
+<zk>
+    <hlayout>
+        <div hflex="1" />
+        <div hflex="3" sclass="title">
+            <toolbarbutton label="Service manager" iconSclass="z-icon-car" onClick='@command("showView", view="~./view/company/ownerCompany.zul")' />
+        </div>
+        <div hflex="2" />
+        <toolbar align="end" >
+            <toolbarbutton label="Companii" iconSclass="z-icon-building" onClick='@command("showView", view="~./view/company/companyManager.zul")' />
+            <toolbarbutton label="Stoc produse" iconSclass="z-icon-archive" onClick='@command("showView", view="~./view/product/prodManager.zul")' />
+            <toolbarbutton label="Facturi intrare" iconSclass="z-icon-file" onClick='@command("showView", view="~./view/invoice/income/incomeInvoiceManager.zul")' />
+            <toolbarbutton label="Facturi iesire" iconSclass="z-icon-file" onClick='@command("showView", view="~./view/invoice/outcome/outcomeInvoiceManager.zul")' />
+            <toolbarbutton label="Cos cumparaturi" iconSclass="z-icon-cart-plus" onClick='alert("Cos cumparaturi ne implementat")' />
+        </toolbar>
+    </hlayout>
+</zk>

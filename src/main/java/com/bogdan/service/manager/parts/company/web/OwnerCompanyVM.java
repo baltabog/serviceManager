@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
+import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.spring.init.CoreVariableResolver;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
@@ -14,66 +15,41 @@ import org.zkoss.zk.ui.select.annotation.WireVariable;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @VariableResolver(CoreVariableResolver.class)
-public class CompanyManagerVM {
-
+public class OwnerCompanyVM {
     @WireVariable
     private CompanyService companyService;
-
     @Getter
     @Setter
     private Company company;
+    @Getter
+    private boolean editDisabled = false;
 
-    private boolean enableEdit = false;
+    @Init
+    public void init() {
+        Optional<Company> dbOwner = companyService.getOwner();
 
-    public List<Company> getCompanies() {
-        return companyService.getAllExceptOwner();
+        if (dbOwner.isPresent()) {
+            company = dbOwner.get();
+            return;
+        }
+
+        company = new Company();
+        company.setType(CompanyTypeEnum.OWNER);
     }
 
     public List<CompanyTypeEnum> getCompanyTypeModel() {
-        return Arrays.asList(CompanyTypeEnum.SUPPLIER, CompanyTypeEnum.CLIENT);
+        return Arrays.asList(CompanyTypeEnum.OWNER);
     }
 
     @Command
-    @NotifyChange({"company", "editDisabled"})
-    public void onSelectCompany() {
-        enableEdit = false;
-    }
-
-    @Command
-    @NotifyChange({"company", "editDisabled"})
-    public void onEdit(@BindingParam("company") Company companySelected) {
-        enableEdit = true;
-        company = companySelected;
-    }
-
-    @Command
-    @NotifyChange("companies")
-    public void onDelete(@BindingParam("company") Company companySelected) {
-        companyService.delete(companySelected.getId());
-    }
-
-    @Command
-    @NotifyChange({"company", "editDisabled"})
-    public void addCompany() {
-        company = new Company();
-        enableEdit = true;
-    }
-
-    @Command
-    @NotifyChange({"companies", "editDisabled"})
     public void saveCompany() {
-        enableEdit = false;
         if (company.getId() > 0) {
             companyService.update(company);
         } else {
             companyService.create(company);
         }
     }
-
-    public boolean isEditDisabled(){
-        return !enableEdit;
-    }
-
 }

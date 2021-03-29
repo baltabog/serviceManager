@@ -1,0 +1,35 @@
+<zk>
+    <div align="right" sclass="z-listheader z-listheader-content">
+        <button label="Salveaza" iconSclass="z-icon-save" onClick="@command('saveContainer')" disabled="@load(vm.editDisabled)" />
+    </div>
+    <grid>
+        <columns>
+            <column hflex="2" />
+            <column hflex="4" />
+            <column hflex="1" />
+            <column hflex="4" />
+        </columns>
+        <rows>
+            <row>
+                <label value="Tip produs: " />
+                <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.productContainer.definition.name)" />
+                <label value="Brand: " />
+                <textbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.productContainer.brand)" />
+            </row>
+            <row>
+                <label value="Marime container: " />
+                <cell colspan="3">
+                    <hlayout>
+                        <intbox hflex="true" disabled="@load(vm.editDisabled)" value="@bind(vm.productContainer.quantity)" />
+                        <combobox id="combobox" hflex="true" model="@load(vm.measurementTypes)"
+                                  selectedItem="@bind(vm.productContainer.definition.measurement)" disabled="@load(vm.editDisabled)">
+                            <template name="model" var="measurement">
+                                <comboitem label="@load(measurement)" value="measurement" />
+                            </template>
+                        </combobox>
+                    </hlayout>
+                </cell>
+            </row>
+        </rows>
+    </grid>
+</zk>
