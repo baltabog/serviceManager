@@ -1,2 +1,4 @@
 /*.iml
 /storage.db
+/target/
+/.idea/
