@@ -5,10 +5,8 @@
         <listhead>
             <listheader hflex="1" label="Tip produs" align="center" sort="containerModel.definition.name" />
             <listheader hflex="1" label="Brand" align="center" sort="containerModel.brand" />
-            <listheader hflex="1" label="Container" align="center" sort="containerModel.quantity"/>
-            <listheader hflex="min" style="border-right: none" align="center">
-                <button label="Adauaga" height="min" hflex="true" iconSclass="z-icon-plus" onClick="@command('addContainer')" />
-            </listheader>
+            <listheader hflex="min" label="Container" align="center" sort="containerModel.quantity"/>
+            <listheader hflex="min" />
         </listhead>
         <template name="model" var="containerModel">
             <listitem>

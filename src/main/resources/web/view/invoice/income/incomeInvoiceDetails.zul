@@ -6,7 +6,7 @@
                 Messagebox.show("Show NIR dialog - NEIMPLEMENTAT", "Error", Messagebox.OK, Messagebox.ERROR);
             ]]></attribute>
         </button>
-        <button label="Fisier" iconSclass="z-icon-print" popup="filePopup" tooltip="filePopup" visible="false" />
+        <button label="Fisier" iconSclass="z-icon-print" popup="filePopup" tooltip="filePopup" visible="true" />
         <popup id="filePopup" width="150px">
             <vlayout>
                 <toolbarbutton label="Incarca" hflex="1" disabled="@load(vm.editDisabled)"  >
