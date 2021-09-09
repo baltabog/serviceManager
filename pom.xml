@@ -29,12 +29,12 @@
 		<repository>
 			<id>ZK CE</id>
 			<name>ZK CE Repository</name>
-			<url>http://mavensync.zkoss.org/maven2</url>
+			<url>https://mavensync.zkoss.org/maven2</url>
 		</repository>
 		<repository>
 			<id>ZK MVN Repository</id>
 			<name>ZK MVN Repository</name>
-			<url>http://mvnrepository.com/</url>
+			<url>https://mvnrepository.com/</url>
 		</repository>
 	</repositories>
 
