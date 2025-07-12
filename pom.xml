@@ -19,7 +19,7 @@
 		<zkspringboot.version>1.0.4</zkspringboot.version>
 		<zkspringcore.version>3.0</zkspringcore.version>
 		<ckez.version>4.11.1.1</ckez.version>
-		<apache.commons.version>3.8.1</apache.commons.version>
+		<apache.commons.version>3.18.0</apache.commons.version>
 		<mapstruct.version>1.4.1.Final</mapstruct.version>
   		<sonar.organization>baltabog</sonar.organization>
   		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
